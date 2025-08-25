@@ -1,3 +1,7 @@
+# small script to test your relay
+# check readme on how to connect a relay to your Raspberry Pi
+# would recommend only to use the 5V pins only. 3V might become critical over time
+
 from gpiozero import OutputDevice
 from time import sleep
 

@@ -1,3 +1,5 @@
+# used original example script from https://github.com/markqvist/LXMF/tree/master/docs
+
 import RNS
 import LXMF
 import os, time

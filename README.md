@@ -66,3 +66,9 @@ To test things out you might want to use 'screen' on your RasPi.
 
 It might be worth a thought to configure your setup as a transport and propagation node to avoid it being bored.
 
+Please be aware that I am by no means an expert in any of this so please be kind if you destroy things building or using your reticulum switch. __No refunds being made__.
+
+Please use the provided links to install rns and lxmf on your RasPi. Please use the search engine of your choice for help setting up system services. I am glad to provide my humble efforts if needed though.
+
+
+
