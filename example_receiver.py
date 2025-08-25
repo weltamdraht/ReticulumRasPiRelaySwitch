@@ -68,8 +68,9 @@ def delivery_callback(message):
     reply = zustand
   elif message.content_as_string() == ("rnstatus"):
     reply = subprocess.getoutput("/home/user/.local/bin/rnstatus")
-  elif ("skeks" in (message.content_as_string())):
-    reply = subprocess.getoutput("/usr/games/fortune de")
+  # optional send fortune cookie because it's fun!
+  # elif ("fortune" in (message.content_as_string())):
+  #   reply = subprocess.getoutput("/usr/games/fortune de")
   else: 
     reply = "I did not get you. Try:\"help\" for help."
 
