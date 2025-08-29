@@ -6,10 +6,19 @@ Some optional elements are added to give it something useful to do while not swi
 
 This is by no means an out-of-the-box solution but can be very helpful if you want to build a reticulum controlled switch. Depending on your rns config you can make it accessible from all over the world in a reliable manner.
 
-Script (example_receiver.py) based on [The One and Only, glad to mention him](https://github.com/markqvist/LXMF/tree/master/docs)
+**This guide might also be helpful to you if you just want to make use of a relay with a Raspberry Pi.**
 
+Script (example_receiver.py) based on [The one and only, glad to mention him, most brilliant genius who tired himself to full and utter exhaustion just to bring us this most incredible and noteworthy brilliant solutions exceeding every intellect in this and most probably every other world that might exist somewhere et cetera et cetera](https://github.com/markqvist/LXMF/tree/master/docs)
 
-
+## Motivation
+Since there is already a similar solution out there using [Meshtastic](https://meshtastic.org/) you might ask why reinvent the wheel? 
+1. Choosing this you can switch off or on your Meshcom-Node or anything else powered by any current the used relay can handle knowing that your on/off command has reached it's destination.
+2. Access your relay switch from everywhere around the globe via the internet using [sideband](https://github.com/markqvist/Sideband)   on your mobile phone or your laptop or [meshchat](https://github.com/liamcottle/reticulum-meshchat) from your laptop/pc or more nerdy/manly stuff like [nomadnet](https://github.com/markqvist/nomadnet) or even more nerdy [lxmf](https://github.com/markqvist/lxmf) on console or python script. 
+3. You can query the status (on or off) at any time - in case you forgot or you are not sure if switching worked or not.
+4. You can implement any command/code you like to execute.
+5. Encryption is not broken (yet).
+6. You do not have to compile any (meshtastic-) firmware - it's all out there ready to use.
+7. You can improve your karma score by doing something useful with reticulum; you will be one of the chosen few.
 
 ## Materials Used
 * Raspberry Pi Zero2W (minimal installation)
@@ -18,7 +27,7 @@ Script (example_receiver.py) based on [The One and Only, glad to mention him](ht
 * 1k resistor
 * transistor 2N2222
 * official RasPi usb-psu (powerful enough)
-You might want to use a logic level converter instead of a transistor or any other RasPi. 
+You might want to use a logic level converter instead of a transistor. 
 
 ## Putting Things Together
 * RasPi is powered via usb.
@@ -51,13 +60,17 @@ Alter 'example_receiver.py' according to your installation.
 
 Put 'example_receiver.py' into your home directory.
 
-Make the script available as a system service. 
+Make the rnsd, lxmd and this script available as a system service or start it manually if you just want to test it out. 
 
-Create a .env File using the example provided in this repo.
+Create a .env File using the example provided in this repo. Put it in your home directory.
 
 ## Usage
 Send an lxmf message with the secret defined in your .env file to your node. Check the status of your node sending the appropriate lxmf message. Just send a message and enjoy the reply containing your help-text. Go outside and enjoy.
 
+## Maintenance
+All this reticulum stuff is challenged in stability and documentation, not to mention the lack of features like groupchats and alike. It is also evolving at a pace that only could impress people in danger of being run over by the movement of a glacier.
+So what I did is reboot everything in a regular fashing using cron.
+If something goes wrong start the script manually instead of running it as a service and you will presented with error messages you can work with.
 
 ## Prose
 We are currently using [rnsh](https://github.com/acehoss/rnsh) to administrate the Raspberry Pi using rns. It surprisingly works really well. 
