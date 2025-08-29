@@ -50,11 +50,11 @@ sudo apt install fortune-mod
 ```
 install rns: [official documentation](https://reticulum.network/manual/gettingstartedfast.html) You might want to install rns as a system service following the link to the official documentation. Or don't if you will not reboot the device ever.
 ```bash
-sudo apt install rns --break-system-packages
+pip install rns --break-system-packages
 ```
 install lxmf [lxmf](https://github.com/markqvist/LXMF) Don't use pipx, we will need to import the libraries within our python script. You might want to start lxmf as a system service also. 
 ```bash
-sudo apt install lxmf --break-system-packages
+pip install lxmf --break-system-packages
 ``` 
 Alter 'example_receiver.py' according to your installation.
 
