@@ -6,7 +6,11 @@ import os, time
 import subprocess
 from gpiozero import OutputDevice
 from dotenv import load_dotenv, dotenv_values 
-
+from pathlib import Path
+# Set working dir
+os.chdir('/home/user/python')
+# File path
+a = Path("relayisoff.status")
 # loading variables from .env file
 load_dotenv() 
 # relay input pin
@@ -21,8 +25,18 @@ zustand = "Meshcom ON"
 required_stamp_cost = 8
 enforce_stamps = False
 
+#restore persisted state after reboot
+if a.exists():
+    print("File exists")
+    relay.on()
+    zustand = "Meshcom OFF."
+else:
+    relay.off()
+    zustand = "Meshcom ON."
+
+
 def delivery_callback(message):
-  global my_lxmf_destination, router, zustand, reply
+  global my_lxmf_destination, router, zustand, reply, a
   time_string      = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(message.timestamp))
   signature_string = "Signature is invalid, reason undetermined"
   if message.signature_validated:
@@ -59,11 +73,14 @@ def delivery_callback(message):
     relay.off()
     reply = "Meshcom ON."
     zustand = "Meshcom ON."
+    if a.exists():
+      a.unlink()
   elif message.content_as_string() == (os.getenv("MY_KEY_OFF")):
     print("Meshcom OFF received!")
     relay.on()
     reply = "Meshcom OFF."
     zustand = "Meshcom OFF."
+    Path("relayisoff.status").touch()
   elif ("help" in (message.content_as_string())):
     reply = "This is your fancy helptext."
   elif ("ustand" in (message.content_as_string())):
