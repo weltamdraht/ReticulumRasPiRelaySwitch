@@ -68,8 +68,8 @@ Create a .env File using the example provided in this repo. Put it in your home 
 Send an lxmf message with the secret defined in your .env file to your node. Check the status of your node sending the appropriate lxmf message. Just send a message and enjoy the reply containing your help-text. Go outside and enjoy.
 
 ## Maintenance
-All this reticulum stuff is challenged in stability and documentation, not to mention the lack of features like groupchats and alike. It is also evolving at a pace that only could impress people in danger of being run over by the movement of a glacier.
-So what I did is reboot everything in a regular fashing using cron.
+All this reticulum stuff is challenged in stability and documentation, not to mention the lack of features like groupchats and alike. It is also evolving at a pace that only could impress people in danger of being run over by a glacier.
+So what I did is reboot everything in a regular fashion using cron.
 If something goes wrong start the script manually instead of running it as a service and you will presented with error messages you can work with.
 
 ## Prose
