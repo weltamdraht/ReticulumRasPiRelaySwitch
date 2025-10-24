@@ -38,6 +38,9 @@ You might want to use a logic level converter instead of a transistor.
 
 ![Assembly](/WaTu_Schalter_bb.png)
 
+<img width="629" height="888" alt="image" src="https://github.com/user-attachments/assets/5b2aae3f-8971-4930-ae13-a3ee12520e0c" />
+
+
 ## Installation
 Install pip
 ```bash
